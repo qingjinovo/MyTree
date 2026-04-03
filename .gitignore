@@ -1,3 +1,5 @@
 /.idea
-/output
+/out
 /.vscode
+CMakelists.txt
+CMakepresets.json

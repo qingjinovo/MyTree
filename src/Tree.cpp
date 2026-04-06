@@ -1,20 +1,20 @@
 #include "../include/Tree.hpp"
 
 using namespace std;
-
-Tree::Tree(string treeName)
+// 构造函数
+Tree::Tree(string treeName,int treeHeight,int waterLevel,int nutritionLevel,int healthLevel,int survivalTime)
 {
     this->treeName = treeName;
-    this->treeHeight = 20;
-    this->waterLevel = 50;
-    this->nutritionLevel = 50;
-    this->healthLevel = 50;
-    this->survivalTime = 0;
-    cout << "创建树成功" << endl;
+    this->treeHeight = treeHeight;
+    this->waterLevel = waterLevel;
+    this->nutritionLevel = nutritionLevel;
+    this->healthLevel = healthLevel;
+    this->survivalTime = survivalTime;
+    //cout << "创建树成功" << endl;
     system("pause");
 }
 Tree::~Tree() {}
-
+// 显示树信息
 void Tree::showTreeInfo()
 {
     cout << "树名：" << this->treeName << endl;
@@ -32,7 +32,7 @@ void Tree::showTreeInfo()
         int survivalTime; */
     system("pause");
 }
-
+// 浇水
 void Tree::waterTree()
 {
     if (this->waterLevel < 100)
@@ -50,7 +50,7 @@ void Tree::waterTree()
     system("pause");
     return;
 }
-
+// 施肥
 void Tree::nutritionTree()
 {
     if (this->nutritionLevel < 100)
@@ -68,7 +68,7 @@ void Tree::nutritionTree()
     system("pause");
     return;
 }
-
+// 生长一天
 void Tree::growOneDay()
 {
     if (this->waterLevel < 40)
@@ -79,7 +79,22 @@ void Tree::growOneDay()
         treeHeight += 20;
     this->waterLevel -= 20;
     this->nutritionLevel -= 20;
-    this->healthLevel  += 20;
+    this->healthLevel += 20;
     this->survivalTime++;
     system("pause");
+}
+
+string Tree::outputTreeName()
+{
+    return this->treeName;
+}
+
+vector<int> Tree::outputTreeNumVector()
+{ vector<int> TreeNumVector;
+    TreeNumVector.push_back(this->treeHeight);
+    TreeNumVector.push_back(this->waterLevel);
+    TreeNumVector.push_back(this->nutritionLevel);
+    TreeNumVector.push_back(this->healthLevel);
+    TreeNumVector.push_back(this->survivalTime);
+    return TreeNumVector;
 }

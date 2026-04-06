@@ -1,14 +1,10 @@
 #include "../include/GameControl.hpp"
 #include "../include/Tree.hpp"
 
-GameControl::GameControl()
-{
-}
+GameControl::GameControl() {}
 
-GameControl::~GameControl()
-{
-}
-
+GameControl::~GameControl() {}
+// 展示游戏主界面
 void GameControl::mainGuideShow()
 {
   system("cls");
@@ -24,7 +20,7 @@ void GameControl::mainGuideShow()
     5. 退出游戏 */
   // system("pause");
 }
-
+// 选择操作
 bool GameControl::chooseOption(Tree *tree)
 {
   int option;
@@ -54,8 +50,22 @@ bool GameControl::chooseOption(Tree *tree)
     break;
 
   default:
-  return 0;
+    return 0;
     break;
   }
   return 0;
+}
+// 保存树信息
+void GameControl::saveTreeInfo(Tree *tree)
+{
+  vector<int> outputTreeNumVector = tree->outputTreeNumVector();
+  fstream data;
+  data.open("data.txt", ios::trunc|ios::out);
+  data << tree->outputTreeName() << endl;
+  data << outputTreeNumVector[0] << endl;
+  data << outputTreeNumVector[1] << endl;
+  data << outputTreeNumVector[2] << endl;
+  data << outputTreeNumVector[3] << endl;
+  data << outputTreeNumVector[4] << endl;
+  data.close();
 }

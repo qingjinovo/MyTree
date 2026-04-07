@@ -8,11 +8,11 @@ GameControl::~GameControl() {}
 void GameControl::mainGuideShow()
 {
   system("cls");
-  cout << "1. 浇水" << endl;
-  cout << "2. 施肥" << endl;
-  cout << "3. 查看状态" << endl;
-  cout << "4. 等待一天" << endl;
-  cout << "5. 退出游戏" << endl;
+  std::cout << "1. 浇水" << std::endl;
+  std::cout << "2. 施肥" << std::endl;
+  std::cout << "3. 查看状态" << std::endl;
+  std::cout << "4. 等待一天" << std::endl;
+  std::cout << "5. 退出游戏" << std::endl;
   /*   1. 浇水
     2. 施肥
     3. 查看状态
@@ -24,8 +24,8 @@ void GameControl::mainGuideShow()
 bool GameControl::chooseOption(Tree *tree)
 {
   int option;
-  cout << "please enter option" << endl;
-  cin >> option;
+  std::cout << "please enter option" << std::endl;
+  std::cin >> option;
   switch (option)
   {
   case 1:
@@ -45,7 +45,7 @@ bool GameControl::chooseOption(Tree *tree)
     return 0;
     break;
   case 5:
-    cout << "exit game" << endl;
+    std::cout << "exit game" << std::endl;
     return 1;
     break;
 
@@ -58,14 +58,14 @@ bool GameControl::chooseOption(Tree *tree)
 // 保存树信息
 void GameControl::saveTreeInfo(Tree *tree)
 {
-  vector<int> outputTreeNumVector = tree->outputTreeNumVector();
-  fstream data;
-  data.open("data.txt", ios::trunc|ios::out);
-  data << tree->outputTreeName() << endl;
-  data << outputTreeNumVector[0] << endl;
-  data << outputTreeNumVector[1] << endl;
-  data << outputTreeNumVector[2] << endl;
-  data << outputTreeNumVector[3] << endl;
-  data << outputTreeNumVector[4] << endl;
+  std::vector<int> outputTreeNumVector = tree->outputTreeNumVector();
+  std::fstream data;
+  data.open("data.txt", std::ios::trunc|std::ios::out);
+  data << tree->outputTreeName() << std::endl;
+  data << outputTreeNumVector[0] << std::endl;
+  data << outputTreeNumVector[1] << std::endl;
+  data << outputTreeNumVector[2] << std::endl;
+  data << outputTreeNumVector[3] << std::endl;
+  data << outputTreeNumVector[4] << std::endl;
   data.close();
 }
